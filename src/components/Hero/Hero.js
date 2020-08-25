@@ -9,10 +9,11 @@ const Hero = props => {
   return (
     <React.Fragment>
       <section className="hero">
-        <h1>
-          This is a demo site of&nbsp;the <strong>heroBlog</strong> GatsbyJS starter
-        </h1>
-        <button onClick={scrollToContent} aria-label="scroll">
+        <h2>
+         CodeToCosmos
+        </h2>
+        <h3 style={{float: "right",width: "60%",fontSize: "1.8em"}}>:-Somesh Chaturvedi</h3>
+        <button onClick={scrollToContent} aria-label="scroll" style={{background:"transparent"}}>
           <FaArrowDown />
         </button>
       </section>
@@ -21,6 +22,7 @@ const Hero = props => {
       <style jsx>{`
         .hero {
           align-items: center;
+          background: ${theme.hero.background};
           background: ${theme.hero.background};
           background-image: url(${backgrounds.mobile});
           background-size: cover;
@@ -34,8 +36,32 @@ const Hero = props => {
           padding-top: ${theme.header.height.homepage};
         }
 
-        h1 {
+        h2 {
           text-align: center;
+          font-size: ${theme.hero.h1.size};
+          margin: ${theme.space.stack.l};
+          color: ${theme.hero.h1.color};
+          line-height: ${theme.hero.h1.lineHeight};
+          text-remove-gap: both 0 "Open Sans";
+
+          :global(strong) {
+            position: relative;
+
+            &::after,
+            &::before {
+              content: "›";
+              color: ${theme.text.color.attention};
+              margin: 0 ${theme.space.xs} 0 0;
+              text-shadow: 0 0 ${theme.space.s} ${theme.color.neutral.gray.k};
+            }
+            &::after {
+              content: "‹";
+              margin: 0 0 0 ${theme.space.xs};
+            }
+          }
+        }
+        h3 {
+          text-align: right;
           font-size: ${theme.hero.h1.size};
           margin: ${theme.space.stack.l};
           color: ${theme.hero.h1.color};
